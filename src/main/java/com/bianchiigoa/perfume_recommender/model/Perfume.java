@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -28,21 +29,19 @@ public class Perfume {
     private Integer aniolanzamiento;
 
     @Column(name = "rating_value")
-    private  Double ratingValue;
+    private BigDecimal ratingValue;
 
     @Column(name = "rating_count")
     private Integer ratingCount;
 
-    @ManyToMany
-    @JoinTable(
-            name = "perfume_acorde",
-            joinColumns = @JoinColumn(name = "perfume_id"),
-            inverseJoinColumns = @JoinColumn(name = "acorde_id")
-    )
-    private List<Acorde> acordes;
+    @OneToMany(mappedBy = "perfume")
+    private List<PerfumeAcorde> acordes;
 
     @OneToMany(mappedBy = "perfume")
     private List<NotaPerfume> notas;
+
+    @OneToMany(mappedBy = "perfume")
+    private List<PerfumeEstacion> estaciones;
 
 
 }
