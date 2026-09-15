@@ -5,26 +5,26 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
-@Table(name = "perfume_estacion")
+@Table(name = "acorde_estacion")
 @Getter
 @Setter
 @NoArgsConstructor
-public class PerfumeEstacion {
 
+public class AcordeEstacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private Double adecuacion;
+    private BigDecimal valor;
 
     @ManyToOne
-    @JoinColumn(name = "perfume_id")
-    private Perfume perfume;
+    @JoinColumn(name ="acorde_id")
+    private Acorde acorde;
 
     @ManyToOne
     @JoinColumn(name = "estacion_id")
     private Estacion estacion;
-
 
 }

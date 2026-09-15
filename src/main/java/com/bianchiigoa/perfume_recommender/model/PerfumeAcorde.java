@@ -2,12 +2,14 @@ package com.bianchiigoa.perfume_recommender.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "perfume_acorde")
 @Getter
 @Setter
+@NoArgsConstructor
 public class PerfumeAcorde {
 
     @Id
@@ -24,4 +26,9 @@ public class PerfumeAcorde {
     @JoinColumn(name = "acorde_id")
     private Acorde acorde;
 
+    public PerfumeAcorde(int orden, Perfume perfume, Acorde acorde){
+      this.orden = orden;
+      this.perfume = perfume;
+      this.acorde = acorde;
+    }
 }
