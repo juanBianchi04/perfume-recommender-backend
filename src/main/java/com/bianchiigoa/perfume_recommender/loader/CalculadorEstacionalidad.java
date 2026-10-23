@@ -32,7 +32,7 @@ public class CalculadorEstacionalidad implements CommandLineRunner {
     }
 
     // pesos de posición (Opción A): índice 0 = orden 1, ... índice 4 = orden 5
-    private static final double[] PESOS_POSICION = {1.00, 0.75, 0.55, 0.35, 0.20};
+    private static final double[] PESOS_POSICION = {1.00, 0.65, 0.40, 0.22, 0.15};
 
     @Override
     public void run(String... args) throws Exception {
